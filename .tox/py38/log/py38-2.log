@@ -1,0 +1,12 @@
+action: py38, msg: installpkg
+cwd: /Users/hamishgibbs/Documents/productivity/fbutils_py
+cmd: /Users/hamishgibbs/Documents/productivity/fbutils_py/.tox/py38/bin/python -m pip install --exists-action w .tox/.tmp/package/1/fbutils-0.0.1.zip
+Processing ./.tox/.tmp/package/1/fbutils-0.0.1.zip
+Requirement already satisfied: pyquadkey2 in ./.tox/py38/lib/python3.8/site-packages (from fbutils==0.0.1) (0.2.0)
+Using legacy setup.py install for fbutils, since package 'wheel' is not installed.
+Installing collected packages: fbutils
+    Running setup.py install for fbutils: started
+    Running setup.py install for fbutils: finished with status 'done'
+Successfully installed fbutils-0.0.1
+WARNING: You are using pip version 20.1.1; however, version 20.2.4 is available.
+You should consider upgrading via the '/Users/hamishgibbs/Documents/productivity/fbutils_py/.tox/py38/bin/python -m pip install --upgrade pip' command.

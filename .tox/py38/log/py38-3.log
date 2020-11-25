@@ -1,0 +1,15 @@
+action: py38, msg: envreport
+cwd: /Users/hamishgibbs/Documents/productivity/fbutils_py
+cmd: /Users/hamishgibbs/Documents/productivity/fbutils_py/.tox/py38/bin/python -m pip freeze
+attrs==20.3.0
+fbutils==0.0.1
+iniconfig==1.1.1
+packaging==20.4
+pluggy==0.13.1
+py==1.9.0
+pyparsing==2.4.7
+pyquadkey2==0.2.0
+pytest==6.1.2
+Shapely==1.7.1
+six==1.15.0
+toml==0.10.2
