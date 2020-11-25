@@ -1,4 +1,4 @@
-import quadkey
+from fbutils import quadkey
 import shapely
 
 

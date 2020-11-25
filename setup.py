@@ -7,7 +7,7 @@ setuptools.setup(
     author_email="Hamish.Gibbs@lshtm.ac.uk",
     description="Personal utilities for managinf Facebook Data For Good data.",
     url="https://github.com/hamishgibbs/fbutils_py",
-    py_modules=['quadkey'],
+    py_modules=['fbutils'],
     install_requires=[
           'pyquadkey2',
           'shapely'
