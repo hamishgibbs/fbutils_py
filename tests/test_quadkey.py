@@ -1,6 +1,7 @@
 import quadkey
 import shapely
 
+
 class Test_tile_polygon:
 
     def test_tile_polygon(self):
@@ -11,6 +12,7 @@ class Test_tile_polygon:
         res = quadkey.tile_polygon(qk)
 
         assert type(res) is shapely.geometry.polygon.Polygon
+
 
 class Test_tile_centroid:
 
