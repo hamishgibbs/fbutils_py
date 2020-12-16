@@ -1,3 +1,3 @@
 # fbutils_py
 
-Python utilities for working with Facebook data for good data.
+Utilities for managing Facebook Data For Good mobility data.
