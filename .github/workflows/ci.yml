@@ -1,4 +1,4 @@
-name: fbutils CI
+name: CI
 
 on: [push]
 
