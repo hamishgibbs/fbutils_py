@@ -15,9 +15,21 @@ def read_tile_movement(fn: str, zoom_level: int = 12) -> pd.DataFrame:
         pd.DataFrame: Formatted movement data.
 
     """
+    try:
 
-    # Read csv file
-    mob = pd.read_csv(fn, parse_dates=['date', 'date_time'])
+        mob = pd.read_csv(fn, parse_dates=['date'])
+
+    except Exception:
+
+        pass
+
+    try:
+
+        mob = pd.read_csv(fn, parse_dates=['date_time'])
+
+    except Exception:
+
+        pass
 
     # Pad start and end quadkeys at the intended zoom level
     mob['start_quadkey'] = [quadkey.pad_quadkey(x, zoom_level) for x in
