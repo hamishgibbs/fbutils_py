@@ -31,3 +31,9 @@ def test_aggregate_tile_movement_records(default_time_movement):
     res = aggregate.aggregate_tile_movement(default_time_movement)
 
     assert len(res.index) == 2
+
+
+def test_aggregate_tile_movement_errors(default_time_movement):
+
+    with pytest.raises(Exception):
+        aggregate.aggregate_tile_movement(default_time_movement, 'anything')
