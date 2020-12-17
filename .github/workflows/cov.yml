@@ -21,6 +21,7 @@ jobs:
         pip install pytest-cov
         pip install shapely
         pip install pyquadkey2
+        pip install pandas
         pytest --cov=./ --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
