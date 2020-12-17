@@ -1,5 +1,5 @@
 import pandas as pd
-import quadkey
+from fbutils import quadkey
 
 
 def read_tile_movement(fn: str, zoom_level: int = 12) -> pd.DataFrame:
