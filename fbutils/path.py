@@ -2,9 +2,11 @@ import re
 from datetime import datetime
 
 
-def get_file_dates(files: list,
-                   date_exp: str = r'\d{4}_\d{2}_\d{2}_\d{4}',
-                   date_format: str = '%Y_%m_%d_%H%M') -> list:
+def get_file_dates(
+    files: list,
+    date_exp: str = r"\d{4}_\d{2}_\d{2}_\d{4}",
+    date_format: str = "%Y_%m_%d_%H%M",
+) -> list:
     """Get a list of all dates from date-names files in a directory.
 
     Args:

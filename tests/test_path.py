@@ -1,10 +1,11 @@
-from fbutils import path
 from datetime import datetime
+
+from fbutils import path
 
 
 def test_get_file_dates_dates():
 
-    files = ['2020_01_02_0000.csv', '2020_01_02_0800.csv']
+    files = ["2020_01_02_0000.csv", "2020_01_02_0800.csv"]
 
     res = path.get_file_dates(files)
 

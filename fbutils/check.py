@@ -1,8 +1,9 @@
 import sys
+
 import pandas as pd
 
 
-def check_date_sequence(obs_dates: list, freq: str = '8H') -> None:
+def check_date_sequence(obs_dates: list, freq: str = "8H") -> None:
     """Check for missing dates given a certain frequency.
 
     If check fails - prompts user to exit.
@@ -16,8 +17,7 @@ def check_date_sequence(obs_dates: list, freq: str = '8H') -> None:
 
     """
 
-    exp_dates = pd.date_range(min(obs_dates), max(obs_dates), freq=freq) \
-                  .tolist()
+    exp_dates = pd.date_range(min(obs_dates), max(obs_dates), freq=freq).tolist()
 
     missing_dates = set(exp_dates).difference(set(obs_dates))
 
@@ -25,12 +25,12 @@ def check_date_sequence(obs_dates: list, freq: str = '8H') -> None:
 
     if n_missing > 0:
 
-        print('Missing {} dates in the data collection.'.format(n_missing))
-        resp = input('Do you want to proceed? (y/n)')
+        print("Missing {} dates in the data collection.".format(n_missing))
+        resp = input("Do you want to proceed? (y/n)")
 
-        if resp != 'y':
+        if resp != "y":
 
-            print('Aborting!')
+            print("Aborting!")
             sys.exit()
 
     return None

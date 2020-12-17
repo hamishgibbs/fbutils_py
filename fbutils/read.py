@@ -1,4 +1,5 @@
 import pandas as pd
+
 from fbutils import quadkey
 
 
@@ -17,7 +18,7 @@ def read_tile_movement(fn: str, zoom_level: int = 12) -> pd.DataFrame:
     """
     try:
 
-        mob = pd.read_csv(fn, parse_dates=['date'])
+        mob = pd.read_csv(fn, parse_dates=["date"])
 
     except Exception:
 
@@ -25,17 +26,19 @@ def read_tile_movement(fn: str, zoom_level: int = 12) -> pd.DataFrame:
 
     try:
 
-        mob = pd.read_csv(fn, parse_dates=['date_time'])
+        mob = pd.read_csv(fn, parse_dates=["date_time"])
 
     except Exception:
 
         pass
 
     # Pad start and end quadkeys at the intended zoom level
-    mob['start_quadkey'] = [quadkey.pad_quadkey(x, zoom_level) for x in
-                            mob['start_quadkey']]
+    mob["start_quadkey"] = [
+        quadkey.pad_quadkey(x, zoom_level) for x in mob["start_quadkey"]
+    ]
 
-    mob['end_quadkey'] = [quadkey.pad_quadkey(x, zoom_level) for x in
-                          mob['end_quadkey']]
+    mob["end_quadkey"] = [
+        quadkey.pad_quadkey(x, zoom_level) for x in mob["end_quadkey"]
+    ]
 
-    return(mob)
+    return mob

@@ -16,10 +16,11 @@ def process_tile_movement(mob: pd.DataFrame) -> pd.DataFrame:
     """
 
     # Create journey column from start_quadkey and end_quadkey columns
-    mob['journey'] = mob['start_quadkey'] + '_' + mob['end_quadkey']
+    mob["journey"] = mob["start_quadkey"] + "_" + mob["end_quadkey"]
 
     # Define percent change from baseline for each period
-    mob['perc_change'] = ((mob['n_crisis'] - mob['n_baseline'])
-                          / mob['n_baseline']) * 100
+    mob["perc_change"] = (
+        (mob["n_crisis"] - mob["n_baseline"]) / mob["n_baseline"]
+    ) * 100
 
     return mob
