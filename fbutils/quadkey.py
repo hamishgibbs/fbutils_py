@@ -2,6 +2,21 @@ from pyquadkey2 import quadkey
 from shapely.geometry import Point, Polygon
 
 
+def pad_quadkey(qk: str, zoom_level: int = 12) -> str:
+    """Pad a quadkey with leading zeros at a given zoom_level.
+
+    Args:
+        qk (str): Input quadkey.
+        zoom_level (int): Intended zoom level of quadkey.
+
+    Returns:
+        str: Formatted quadkey.
+
+    """
+
+    return str(qk).zfill(zoom_level)
+
+
 def tile_polygon(qk: str) -> Polygon:
     """Return a bounding polygon given a quadkey.
 

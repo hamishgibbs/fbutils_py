@@ -3,6 +3,18 @@ from shapely.geometry import Point, Polygon
 from fbutils import quadkey
 
 
+def test_pad_quadkey():
+    """Test that pad_quadkey returns an appropriate length string"""
+
+    qk = "123"
+
+    zoom_level = 12
+
+    res = quadkey.pad_quadkey(qk, zoom_level)
+
+    assert len(res) == zoom_level
+
+
 def test_tile_polygon():
     """Test that tile_polygon returns a shapely Polygon"""
 
