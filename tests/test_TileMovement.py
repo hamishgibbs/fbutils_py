@@ -22,3 +22,13 @@ def test_read(tmp_dir):
 
     assert type(res) is pd.DataFrame
     assert res.loc[0, 'start_quadkey'] == '00001'
+
+def test_define_journey():
+
+    data = pd.DataFrame({'start_quadkey': ['1', '2', '3'],
+                         'end_quadkey': ['1', '2', '3']})
+
+    res = TileMovement.define_journey(data)
+
+    assert 'journey' in res.columns
+    assert res.loc[0, 'journey'] == '1_1'
