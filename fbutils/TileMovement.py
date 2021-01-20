@@ -1,5 +1,5 @@
 import pandas as pd
-from fbutils.utils import pad_quadkey
+from fbutils.utils import pad_quadkey, date_to_daily
 
 def read(fn, zoom_level=12):
 
@@ -29,3 +29,26 @@ def define_perc_change(data: pd.DataFrame):
 def filter_country(data: pd.DataFrame, country: str):
 
     return data[data['country'] == country]
+
+
+def aggregate_time(data: pd.DataFrame, type: str):
+
+    try:
+
+        assert type in ['daily']
+
+    except AssertionError:
+
+        raise ValueError('Unknown aggregation type %s'.format(type))
+
+    if type == 'daily':
+
+        data['date_time'] = [date_to_daily(x) for x in data['date_time']]
+
+    data = (
+        data.groupby(["date_time", "journey", "start_quadkey", "end_quadkey"])
+        .agg({"n_crisis": "sum", "n_baseline": "sum"})
+        .reset_index()
+    )
+
+    return data

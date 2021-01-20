@@ -1,6 +1,26 @@
 import pandas as pd
 from fbutils import TileMovement
 import pytest
+from datetime import datetime
+
+@pytest.fixture
+def default_time_movement():
+
+    mob = pd.DataFrame(
+        {
+            "date_time": [datetime(2020, 1, 1, 0),
+                          datetime(2020, 1, 1, 8),
+                          datetime(2020, 1, 1, 16)],
+            "start_quadkey": ["1", "1", "1"],
+            "end_quadkey": ["1", "1", "1"],
+            "journey": ["1_1", "1_1", "1_1"],
+            "n_crisis": [1, 2, 3],
+            "n_baseline": [2, 2, 3],
+        }
+    )
+
+    return mob
+
 
 @pytest.fixture(scope="session")
 def tmp_dir(tmpdir_factory):
@@ -53,3 +73,16 @@ def test_filter_country():
 
     assert len(res.index) == 2
     assert res['country'].unique() == 'GB'
+
+
+def test_aggregate_raises(default_time_movement):
+
+    with pytest.raises(ValueError):
+        TileMovement.aggregate_time(default_time_movement, 'other')
+
+
+def test_aggregate(default_time_movement):
+
+    res = TileMovement.aggregate_time(default_time_movement, 'daily')
+
+    assert len(res.index) == 1
