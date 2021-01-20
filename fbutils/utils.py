@@ -1,6 +1,14 @@
 import pandas as pd
 
 
+def pad_quadkey(data: pd.DataFrame, column: str, zoom_level: int):
+
+    data[column] = [str(x).zfill(zoom_level) for x in data[column]]
+
+    return(data)
+
+
+
 def group_by_dict(data: pd.DataFrame, group_var: str) -> dict:
     """Return a dictionary of dataframes by grouping key.
 

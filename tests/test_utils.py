@@ -33,3 +33,12 @@ def test_group_by_dict_len(default_time_movement):
     res = utils.group_by_dict(default_time_movement, "date_time")
 
     assert len(res) == 2
+
+
+def test_pad_quadkey():
+
+    data = pd.DataFrame({'quadkey': ['1', '2', '3']})
+
+    res = utils.pad_quadkey(data, 'quadkey', 12)
+
+    assert res.loc[0, 'quadkey'] == '000000000001'
