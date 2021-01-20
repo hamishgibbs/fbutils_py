@@ -8,7 +8,7 @@ def aggregate_tile_movement(mob: pd.DataFrame, time_agg="daily") -> pd.DataFrame
 
     if time_agg not in ["daily", "weekly"]:
 
-        raise Exception("Unknown time_agg value {}".fomat(time_agg))
+        raise Exception("Unknown time_agg value {}".format(time_agg))
 
     if time_agg == 'weekly':
 
