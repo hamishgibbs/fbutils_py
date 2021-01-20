@@ -32,3 +32,14 @@ def test_define_journey():
 
     assert 'journey' in res.columns
     assert res.loc[0, 'journey'] == '1_1'
+
+
+def test_define_perc_change():
+
+    data = pd.DataFrame({'n_crisis': [1],
+                        'n_baseline': [2]})
+
+    res = TileMovement.define_perc_change(data)
+
+    assert 'perc_change' in res.columns
+    assert res.loc[0, 'perc_change'] = -0.5
