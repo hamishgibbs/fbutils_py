@@ -1,4 +1,3 @@
-import fbutils.aggregate
 import fbutils.check
 import fbutils.path
 import fbutils.process

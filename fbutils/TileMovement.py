@@ -1,5 +1,5 @@
 import pandas as pd
-from fbutils.utils import pad_quadkey, date_to_daily
+from fbutils.utils import pad_quadkey, date_to_daily, date_to_weekly
 
 def read(fn, zoom_level=12):
 
@@ -35,7 +35,7 @@ def aggregate_time(data: pd.DataFrame, type: str):
 
     try:
 
-        assert type in ['daily']
+        assert type in ['daily', 'weekly']
 
     except AssertionError:
 
@@ -44,6 +44,10 @@ def aggregate_time(data: pd.DataFrame, type: str):
     if type == 'daily':
 
         data['date_time'] = [date_to_daily(x) for x in data['date_time']]
+
+    if type == 'weekly':
+
+        data['date_time'] = [date_to_weekly(x) for x in data['date_time']]
 
     data = (
         data.groupby(["date_time", "journey", "start_quadkey", "end_quadkey"])

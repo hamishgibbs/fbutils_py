@@ -81,8 +81,14 @@ def test_aggregate_raises(default_time_movement):
         TileMovement.aggregate_time(default_time_movement, 'other')
 
 
-def test_aggregate(default_time_movement):
+def test_aggregate_daily(default_time_movement):
 
     res = TileMovement.aggregate_time(default_time_movement, 'daily')
+
+    assert len(res.index) == 1
+
+def test_aggregate_weekly(default_time_movement):
+
+    res = TileMovement.aggregate_time(default_time_movement, 'weekly')
 
     assert len(res.index) == 1
