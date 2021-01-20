@@ -42,4 +42,14 @@ def test_define_perc_change():
     res = TileMovement.define_perc_change(data)
 
     assert 'perc_change' in res.columns
-    assert res.loc[0, 'perc_change'] = -0.5
+    assert res.loc[0, 'perc_change'] == -50
+
+
+def test_filter_country():
+
+    data = pd.DataFrame({'country': ['GB', 'GB', 'USA']})
+
+    res = TileMovement.filter_country(data, 'GB')
+
+    assert len(res.index) == 2
+    assert res['country'].unique() == 'GB'

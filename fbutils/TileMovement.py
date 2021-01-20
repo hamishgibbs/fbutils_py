@@ -20,8 +20,12 @@ def define_journey(data: pd.DataFrame):
 
 def define_perc_change(data: pd.DataFrame):
 
-    mob["perc_change"] = (
-        (mob["n_crisis"] - mob["n_baseline"]) / mob["n_baseline"]
+    data["perc_change"] = (
+        (data["n_crisis"] - data["n_baseline"]) / data["n_baseline"]
     ) * 100
 
     return data
+
+def filter_country(data: pd.DataFrame, country: str):
+
+    return data[data['country'] == country]
